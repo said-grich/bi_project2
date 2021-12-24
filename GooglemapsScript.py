@@ -12,9 +12,13 @@ import time
 class GoogleMapsScript:
     def __init__(self):
         chrome_options = webdriver.ChromeOptions()
-        chrome_options.headless = False
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument("--disable-notifications")
-        self.driver = webdriver.Chrome(chrome_options=chrome_options, executable_path="chromedriver.exe")
+        chrome_options.add_argument(
+            "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36")
+
+        self.driver = webdriver.Chrome(options=chrome_options)
         self.domain = ''
         self.driver.get(
             'https://www.google.com/travel/?dest_src=ut&tcfs=UgA&ved=2ahUKEwjEuq2jkvv0AhVy_9UKHYYVCGAQyJABegQIABAQ&ictx=2')
@@ -75,11 +79,7 @@ class GoogleMapsScript:
             accommodation_fields['comments'].append(comment.text)
             actions = ActionChains(self.driver)
             actions.send_keys(Keys.PAGE_UP)
-
+        self.driver.quit();
         return accommodation_fields
 
 
-if __name__ == '__main__':
-    scriptboocking = GoogleMapsScript();
-    scriptboocking.fill_form("wazo");
-    scriptboocking.scrape_accommodation_data()

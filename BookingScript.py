@@ -1,30 +1,39 @@
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException, StaleElementReferenceException
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.firefox.options import Options
 import time
 
 
 class BookingScript:
     def __init__(self):
         chrome_options = webdriver.ChromeOptions()
-        chrome_options.headless=True
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument("--disable-notifications")
-        self.driver = webdriver.Chrome(chrome_options=chrome_options, executable_path="chromedriver.exe")
+        chrome_options.add_argument(
+            "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36")
+
+        self.driver = webdriver.Chrome(options=chrome_options)
+        wait = WebDriverWait(self.driver, 30)
+        action = ActionChains(self.driver)
         self.domain = 'https://www.booking.com'
         self.driver.get('https://www.booking.com')
 
     def fill_form(self, search_argument):
         '''Finds all the input tags in form and makes a POST requests.'''
+        print(search_argument)
         search_field = self.driver.find_element_by_id('ss')
         search_field.send_keys(search_argument)
+        print(search_field.text)
         # We look for the search button and click it
         self.driver.find_element_by_class_name('sb-searchbox__button') \
             .click()
+
         time.sleep(5)
-        wait = WebDriverWait(self.driver, timeout=10).until(
+        wait = WebDriverWait(self.driver, timeout=30).until(
             EC.presence_of_all_elements_located(
                 (By.XPATH,
                  '//*[@id="search_results_table"]/div[1]/div/div/div/div[5]/div[1]/div[1]/div[2]/div/div[1]/div/div[1]/div/div[1]/div/h3/a/div[1]')))
@@ -34,7 +43,6 @@ class BookingScript:
 
     def scrape_results(self, n_results):
         '''Returns the data from n_results amount of results.'''
-
         accommodations_urls = list()
         accommodations_data = list()
 
@@ -109,4 +117,5 @@ class BookingScript:
             except StaleElementReferenceException:
                 print
                 "Loading took too much time!"
+        self.driver.quit();
         return accommodation_fields
