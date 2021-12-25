@@ -100,8 +100,8 @@ class BookingScript:
         li_list = comments_list.find_elements_by_tag_name("li");
         for i in range(6):
             try:
-                time.sleep(1)
-                myElem = WebDriverWait(self.driver, 5).until(
+                time.sleep(5)
+                myElem = WebDriverWait(self.driver, 10).until(
                     EC.element_to_be_clickable((By.CSS_SELECTOR, 'a.pagenext')))
                 comments_list = WebDriverWait(self.driver, 5).until(
                     EC.presence_of_element_located((By.XPATH, "//*[@id=\"review_list_page_container\"]/ul")));

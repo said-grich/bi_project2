@@ -1,3 +1,5 @@
+import json
+
 from selenium import webdriver
 from selenium.common.exceptions import StaleElementReferenceException
 from selenium.webdriver import Keys
@@ -82,4 +84,11 @@ class GoogleMapsScript:
         self.driver.quit();
         return accommodation_fields
 
+
+if __name__ == '__main__':
+    scriptboocking = GoogleMapsScript();
+    scriptboocking.fill_form("wazo");
+    accommodations_data=scriptboocking.scrape_accommodation_data()
+    with open("google.json", 'w') as f:
+        json.dump(accommodations_data, f)
 
