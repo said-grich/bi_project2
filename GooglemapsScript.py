@@ -12,7 +12,7 @@ import time
 class GoogleMapsScript:
     def __init__(self):
         chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument('--headless')
+        # chrome_options.add_argument('--headless')
         chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument("--disable-notifications")
         chrome_options.add_argument(
@@ -34,21 +34,26 @@ class GoogleMapsScript:
         search_field.click();
 
     def scroll_down(self):
-        scroll_pause_time = 1  # You can set your own pause time. My laptop is a bit slow so I use 1 sec
-        screen_height = self.driver.execute_script("return window.screen.height;")  # get the screen height of the web
-        i = 1
+        """A method for scrolling the page."""
+
+        # Get scroll height.
+        last_height = self.driver.execute_script("return document.body.scrollHeight")
 
         while True:
-            # scroll one screen height each time
-            self.driver.execute_script(
-                "window.scrollTo(0, {screen_height}*{i});".format(screen_height=screen_height, i=i))
-            i += 1
-            time.sleep(scroll_pause_time)
-            # update scroll height each time after scrolled, as the scroll height can change after we scrolled the page
-            scroll_height = self.driver.execute_script("return document.body.scrollHeight;")
-            # Break the loop when the height we need to scroll to is larger than the total scroll height
-            if (screen_height) * i > scroll_height:
+
+            # Scroll down to the bottom.
+            self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
+            # Wait to load the page.
+            time.sleep(2)
+
+            # Calculate new scroll height and compare with last scroll height.
+            new_height = self.driver.execute_script("return document.body.scrollHeight")
+
+            if new_height == last_height:
                 break
+
+            last_height = new_height
 
     def scrape_accommodation_data(self):
         '''Visits an accommodation page and extracts the data.'''
@@ -69,18 +74,22 @@ class GoogleMapsScript:
             print(facility.text);
         self.driver.find_element(By.ID, "reviews").click()
         time.sleep(4)
-        for i in range(10): self.scroll_down();
+        comment_list = self.driver.find_elements(By.CLASS_NAME,"Svr5cf")
+        self.scroll_down()
 
+        # for i in range(10):
+        #     self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
+        #     self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight-100)")
+        #     time.sleep(3)
+        #     comment_list = self.driver.find_elements(By.CSS_SELECTOR, "div.Svr5cf.bKhjM")
         accommodation_fields['comments'] = list();
-
-        comment_list = self.driver.find_element(By.CSS_SELECTOR, "div.RJysl").find_elements(By.CSS_SELECTOR,
-                                                                                            "div.kVathc");
-        for comment in comment_list:
-            accommodation_fields['comments'].append(comment.text)
-            actions = ActionChains(self.driver)
-            actions.send_keys(Keys.PAGE_UP)
+        actions = ActionChains(self.driver)
+        htmlstring = self.driver.page_source
+        afterstring = ""
+        key1=actions.click(Keys.PAGE_DOWN);
+        key1.perform()
         self.driver.quit();
-        return accommodation_fields
+
 
 
 if __name__ == '__main__':
