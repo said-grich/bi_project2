@@ -9,6 +9,7 @@ from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from pandas import pd
 
 
 class GoogleMap:
@@ -27,11 +28,11 @@ class GoogleMap:
         self.changeIpRequest();
         webdriver.DesiredCapabilities.CHROME['acceptSslCerts'] = True
         self.driver = webdriver.Chrome(chrome_options=options)
-        self.driver.maximize_window()
         self.list = []
         self.comment_number = 0;
         self.dev_tools = pychrome.Browser(url="http://localhost:8000")
-        self.tab = self.dev_tools.list_tab()[0]
+
+        self.tab = self.dev_tools.list_tab()[-1]
         self.tab.start()
         start = time.time()
 
@@ -148,7 +149,6 @@ class GoogleMap:
         with open(self.search_argument + "GoogleMapApi.json", 'w') as f:
             json.dump(list_date_text, f)
         time.sleep(10)
-        self.driver.quit()
 
 
 if __name__ == '__main__':
@@ -160,11 +160,11 @@ if __name__ == '__main__':
            test.setLessnnerOnTab();
            test.getCommentUsingUrl()
        finally:
-           test.driver.quit();
+           print(search+ "Done !")
 
 
-    list_hotel = ["wazo", "argana", "Racine", "Radisson", "savoy", "Palm plaza"]
+    list_hotel = [ "savoy", "Palm plaza"]
     for ho in list_hotel:
         lopOnHotles(ho)
-        time.sleep(10);
+        time.sleep(60);
 

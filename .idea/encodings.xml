@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/argana hotel moroccoGoogleMapApi.json" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/hotels_info/argana-info_comment/argana-comments.json" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/wazo hotel moroccoGoogleMapApi.json" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/wazogoogleMaps.json" charset="UTF-16" />
   </component>
