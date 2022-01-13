@@ -1,0 +1,112 @@
+[
+  {
+    "name": "Dafydd",
+    "nationality": "United Kingdom",
+    "number_of_nights": "4 nights \u00b7  July 2021",
+    "clinet_type": "Solo traveler",
+    "room_type": "Standard Room",
+    "review_date": "Reviewed: August 20, 2021",
+    "visite_date": "July 2021",
+    "text": "Hotel was great, away from the city so very quiet, not a big place but this makes it better.",
+    "score": "10"
+  },
+  {
+    "name": "Matthew",
+    "nationality": "United Kingdom",
+    "number_of_nights": "6 nights \u00b7  September 2021",
+    "clinet_type": "Couple",
+    "room_type": "Standard Room",
+    "review_date": "Reviewed: October 1, 2021",
+    "visite_date": "September 2021",
+    "text": "Staff were superb from receptionists to cleaners, bar and restaurant staff and entertainment team. Incredibly friendly and accommodating. Good gym and excellent pool area with plenty of seating. Lovely setting and very clean.",
+    "score": "9.0"
+  },
+  {
+    "name": "Yuliia",
+    "nationality": "Ukraine",
+    "number_of_nights": "2 nights \u00b7  September 2021",
+    "clinet_type": "Couple",
+    "room_type": "Standard Room",
+    "review_date": "Reviewed: September 26, 2021",
+    "visite_date": "September 2021",
+    "text": "staff facilities",
+    "score": "8.0"
+  },
+  {
+    "name": "Mariam",
+    "nationality": "United Kingdom",
+    "number_of_nights": "4 nights \u00b7  August 2021",
+    "clinet_type": "Family",
+    "room_type": "Standard Room",
+    "review_date": "Reviewed: September 11, 2021",
+    "visite_date": "August 2021",
+    "text": "Everything was fabulous",
+    "score": "9.0"
+  },
+  {
+    "name": "Ludivine",
+    "nationality": "France",
+    "number_of_nights": "5 nights \u00b7  November 2021",
+    "clinet_type": "Group",
+    "room_type": "Standard Room",
+    "review_date": "Reviewed: December 9, 2021",
+    "visite_date": "November 2021",
+    "text": "L\u2019ensemble de l\u2019\u00e9quipe animation \u00e9tait adorable et \u00e0 l\u2019\u00e9coute (un grand merci \u00e0 tous pour ces superbes moment) Un grand nombre d\u2019activit\u00e9s possible (tennis, salle de sport, superbe piscine) Les boissons et la nourriture de tr\u00e8s bonne qualit\u00e9, on s\u2019est r\u00e9gal\u00e9 !!",
+    "score": "9.0"
+  },
+  {
+    "name": "Hamdoun",
+    "nationality": "Morocco",
+    "number_of_nights": "3 nights \u00b7  November 2021",
+    "clinet_type": "Family",
+    "room_type": "Family Room (2 Adults + 2 Children)",
+    "review_date": "Reviewed: December 6, 2021",
+    "visite_date": "November 2021",
+    "text": "L'h\u00f4tel magnifique les terrains de sport, le club enfants, les soir\u00e9es \u00e0 th\u00e8me, la nourriture excellente, les animateurs au top, le tout inclus, les chambres familiales agr\u00e9able ...",
+    "score": "9.0"
+  },
+  {
+    "name": "Nadia",
+    "nationality": "Morocco",
+    "number_of_nights": "4 nights \u00b7  November 2021",
+    "clinet_type": "Couple",
+    "room_type": "Standard Room",
+    "review_date": "Reviewed: December 1, 2021",
+    "visite_date": "November 2021",
+    "text": "Un excellent petit d\u00e9jeuner. Une bonne \u00e9quipe d'animation et en g\u00e9n\u00e9ral tout le personnel \u00e9tait \u00e0 l'\u00e9coute",
+    "score": "8.0"
+  },
+  {
+    "name": "Karima",
+    "nationality": "Morocco",
+    "number_of_nights": "2 nights \u00b7  November 2021",
+    "clinet_type": "Couple",
+    "room_type": "Standard Room",
+    "review_date": "Reviewed: November 21, 2021",
+    "visite_date": "November 2021",
+    "text": "L'\u00e9quipe d'animation \u00e9tait \u00e0 la hauteur Ainsi que le personnel. La restauration \u00e9tait d\u00e9lectable.",
+    "score": "9.0"
+  },
+  {
+    "name": "Jebari",
+    "nationality": "Morocco",
+    "number_of_nights": "3 nights \u00b7  November 2021",
+    "clinet_type": "Family",
+    "room_type": "Standard Room (2 Adults + 1 Child)",
+    "review_date": "Reviewed: November 20, 2021",
+    "visite_date": "November 2021",
+    "text": "L'animation, la cuisine",
+    "score": "8.0"
+  },
+  {
+    "name": "Marion",
+    "nationality": "France",
+    "number_of_nights": "3 nights \u00b7  November 2021",
+    "clinet_type": "Group",
+    "room_type": "Family Room (3 Adults)",
+    "review_date": "Reviewed: November 8, 2021",
+    "visite_date": "November 2021",
+    "text": "Nous avons pass\u00e9 une tr\u00e8s belle semaine au sol oasis : L\u2019\u00e9tablissement a \u00e9t\u00e9 refait r\u00e9cemment, propret\u00e9 impeccable, Restauration bonne et vari\u00e9e chaque jour, Personnel serviable et tr\u00e8s sympathique et \u00e9quipe d\u2019animation au top ! Super s\u00e9jour !",
+    "score": "9.0"
+  }
+]
